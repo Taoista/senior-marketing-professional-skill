@@ -16,6 +16,7 @@ Funciona como paquete de plugin en Google Antigravity y Claude Code. La skill ut
 La skill ayuda a:
 
 - convertir objetivos generales en resultados observables y medibles;
+- responder en el idioma del usuario, salvo que se solicite otro;
 - identificar audiencias, problemas, objeciones y comportamientos esperados;
 - definir posicionamiento, propuesta de valor y mensajes;
 - diseñar estrategias, campañas, lanzamientos y planes de canal;
@@ -43,12 +44,14 @@ senior-marketing-professional-skill/
 ├── skills/
 │   └── senior-marketing-professional/
 │       ├── SKILL.md
+│       ├── agents/
+│       │   └── openai.yaml
 │       └── references/
 │           └── measurement.md
 └── README.md
 ```
 
-Los manifiestos identifican el mismo paquete como **Senior Marketing Suite** en cada plataforma. El contenido profesional permanece en `skills/senior-marketing-professional/` y no depende de una marca o modelo específico.
+Los manifiestos identifican el mismo paquete como **Senior Marketing Suite** en cada plataforma. El contenido profesional permanece en `skills/senior-marketing-professional/` y no depende de una marca o modelo específico. `agents/openai.yaml` agrega metadatos visuales opcionales para Codex y ChatGPT; otras plataformas pueden ignorarlo.
 
 ## Instalación en Google Antigravity
 

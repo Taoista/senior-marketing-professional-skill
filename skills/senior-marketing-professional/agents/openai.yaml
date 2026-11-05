@@ -1,0 +1,4 @@
+interface:
+  display_name: "Profesional Senior de Marketing"
+  short_description: "Estrategia, campañas y medición de marketing"
+  default_prompt: "Usa $senior-marketing-professional para convertir este objetivo de negocio en un plan de marketing priorizado."
