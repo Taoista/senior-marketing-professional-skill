@@ -1,13 +1,13 @@
 {
   "name": "senior-marketing-suite",
-  "displayName": "Senior Marketing Suite",
-  "version": "1.0.0",
-  "description": "Turns business goals into evidence-backed marketing strategy, campaign plans, lifecycle programs, and measurement decisions.",
+  "displayName": "Senior Marketing Suite (PY)",
+  "version": "1.1.0",
+  "description": "Suite profesional para crear estrategias, campañas, medición y decisiones de marketing adaptadas al mercado y normativa de Paraguay.",
   "author": {
     "name": "Taoista",
     "url": "https://github.com/Taoista"
   },
   "homepage": "https://github.com/Taoista/senior-marketing-professional-skill",
   "repository": "https://github.com/Taoista/senior-marketing-professional-skill",
-  "keywords": ["marketing", "strategy", "campaigns", "growth", "measurement"]
+  "keywords": ["marketing", "paraguay", "strategy", "campaigns", "growth", "measurement"]
 }
