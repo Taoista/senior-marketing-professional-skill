@@ -1,170 +1,134 @@
-# Profesional Senior de Marketing para Codex
+# Senior Marketing Suite
 
-Skill de marketing para Codex orientada a convertir objetivos de negocio en decisiones y planes accionables. Trabaja con criterio profesional senior en estrategia, posicionamiento, go-to-market, campañas, contenidos, lifecycle, CRM, medición y experimentación.
+Plugin multiplataforma que incorpora la skill **Senior Marketing Professional** para convertir objetivos de negocio en estrategias, campañas y decisiones de marketing respaldadas por evidencia.
+
+Funciona como paquete de plugin en Google Antigravity y Claude Code. La skill utiliza el estándar abierto `SKILL.md`, por lo que también puede reutilizarse en otros agentes compatibles con Agent Skills.
+
+## Identidad
+
+- **Nombre del plugin:** `senior-marketing-suite`
+- **Nombre visible:** Senior Marketing Suite
+- **Skill incluida:** `senior-marketing-professional`
+- **Versión:** `1.0.0`
 
 ## Qué hace
 
 La skill ayuda a:
 
-- Traducir objetivos generales en resultados observables y medibles.
-- Identificar audiencias, problemas, objeciones y comportamientos esperados.
-- Definir posicionamiento, propuesta de valor y mensajes.
-- Diseñar estrategias, campañas, lanzamientos y planes de canal.
-- Auditar embudos y detectar el principal cuello de botella.
-- Priorizar iniciativas por impacto, evidencia, esfuerzo, tiempo y riesgo.
-- Preparar reportes ejecutivos y planes de acción.
-- Definir KPI, escenarios, experimentos y criterios para decidir si continuar, corregir o detener una iniciativa.
+- convertir objetivos generales en resultados observables y medibles;
+- identificar audiencias, problemas, objeciones y comportamientos esperados;
+- definir posicionamiento, propuesta de valor y mensajes;
+- diseñar estrategias, campañas, lanzamientos y planes de canal;
+- auditar embudos y detectar el principal cuello de botella;
+- priorizar iniciativas por impacto, evidencia, esfuerzo, tiempo y riesgo;
+- preparar reportes ejecutivos y planes de acción;
+- definir KPI, escenarios, experimentos y criterios para continuar, corregir o detener una iniciativa.
 
 La skill diferencia hechos, interpretaciones, supuestos y recomendaciones. No inventa datos, benchmarks, atribución, testimonios ni resultados.
 
-## Estructura del repositorio
+## Integraciones de datos
+
+La skill puede trabajar con un plugin, conector o servidor MCP de marketing disponible en el agente que la ejecuta. Incluye instrucciones específicas para utilizar **Supermetrics Marketing Agent** —o una integración equivalente— cuando la tarea requiere datos actuales de campañas, presupuestos, atribución, embudos o dashboards.
+
+Supermetrics no está incluido ni se instala desde este repositorio. Cada usuario debe conectarlo por separado en la plataforma donde esté disponible. Si no existe una integración conectada, la skill puede trabajar con datos proporcionados por el usuario o con archivos exportados.
+
+## Estructura
 
 ```text
-senior-marketing-professional/
-├── README.md
-├── SKILL.md
-├── agents/
-│   └── openai.yaml
-└── references/
-    └── measurement.md
+senior-marketing-professional-skill/
+├── .antigravity-plugin/
+│   └── plugin.json
+├── .claude-plugin/
+│   └── plugin.json
+├── skills/
+│   └── senior-marketing-professional/
+│       ├── SKILL.md
+│       └── references/
+│           └── measurement.md
+└── README.md
 ```
 
-### `SKILL.md`
+Los manifiestos identifican el mismo paquete como **Senior Marketing Suite** en cada plataforma. El contenido profesional permanece en `skills/senior-marketing-professional/` y no depende de una marca o modelo específico.
 
-Es el archivo principal y obligatorio de la skill. Contiene:
+## Instalación en Google Antigravity
 
-- El nombre y la descripción que Codex utiliza para reconocer cuándo debe activarla.
-- El enfoque profesional y los criterios de decisión.
-- Los modos de trabajo: estrategia, go-to-market, campañas, auditoría, marca, contenidos, lifecycle, CRM y reportes.
-- Las reglas de priorización y calidad.
-- Los límites de autorización antes de publicar, enviar mensajes o modificar campañas, presupuestos, segmentaciones o registros.
-
-Codex carga este archivo cuando la solicitud coincide con la descripción de la skill o cuando se invoca explícitamente.
-
-### `agents/openai.yaml`
-
-Contiene metadatos para la interfaz de Codex. Define:
-
-- El nombre visible de la skill.
-- Su descripción corta.
-- Un prompt inicial sugerido.
-
-Este archivo no contiene conocimiento de marketing ni reemplaza a `SKILL.md`. Su función principal es presentar la skill correctamente en la interfaz.
-
-### `references/measurement.md`
-
-Es una referencia especializada que se consulta únicamente cuando la tarea requiere medición, atribución, presupuestos, forecasting o experimentación.
-
-Incluye orientación sobre:
-
-- Métricas de negocio, comportamiento y marketing.
-- CAC, ROAS, LTV, conversión y velocidad del pipeline.
-- Definiciones, fuentes y ventanas temporales.
-- Limitaciones de la atribución.
-- Pruebas A/B, grupos de control e incrementalidad.
-- Forecasts y escenarios sin falsa precisión.
-
-Separar esta información permite que Codex cargue el contenido técnico solo cuando resulta necesario.
-
-## Instalación
-
-### Windows con PowerShell
-
-```powershell
-git clone git@github.com:Taoista/senior-marketing-professional-skill.git "$env:USERPROFILE\.codex\skills\senior-marketing-professional"
-```
-
-### macOS o Linux
+Clona el repositorio y valida el plugin:
 
 ```bash
-git clone git@github.com:Taoista/senior-marketing-professional-skill.git ~/.codex/skills/senior-marketing-professional
+git clone https://github.com/Taoista/senior-marketing-professional-skill.git
+agy plugin validate --strict ./senior-marketing-professional-skill
+agy plugin install ./senior-marketing-professional-skill
 ```
 
-También puedes utilizar HTTPS:
+Después puedes invocar la skill con:
+
+```text
+/senior-marketing-professional
+```
+
+También puede activarse automáticamente cuando la solicitud coincide con su descripción.
+
+## Instalación en Claude Code
+
+Durante desarrollo, clona el repositorio y carga el plugin desde su carpeta:
 
 ```bash
-git clone https://github.com/Taoista/senior-marketing-professional-skill.git ~/.codex/skills/senior-marketing-professional
+git clone https://github.com/Taoista/senior-marketing-professional-skill.git
+claude --plugin-dir ./senior-marketing-professional-skill
 ```
 
-Después de instalarla, inicia un chat o una sesión nueva para que Codex detecte la skill.
-
-## Cómo usarla
-
-Puedes invocarla explícitamente escribiendo:
+La skill queda disponible dentro del namespace del plugin:
 
 ```text
-$senior-marketing-professional
+/senior-marketing-suite:senior-marketing-professional
 ```
 
-También puede activarse automáticamente cuando la solicitud corresponde a su descripción.
+Claude también puede activarla automáticamente cuando el contexto de la solicitud resulta pertinente.
 
-### Ejemplo: estrategia
+## Uso como skill independiente
+
+Si el agente admite Agent Skills pero no plugins, copia esta carpeta a su directorio de skills:
 
 ```text
-$senior-marketing-professional Crea una estrategia de marketing para una empresa
-B2B SaaS que quiere aumentar su pipeline calificado durante los próximos seis meses.
-Separa hechos, supuestos y recomendaciones.
+skills/senior-marketing-professional/
 ```
 
-### Ejemplo: campaña
+El archivo obligatorio es `SKILL.md`; la referencia `measurement.md` debe conservarse en la misma estructura relativa.
+
+## Ejemplos
+
+### Estrategia
 
 ```text
-$senior-marketing-professional Diseña el brief de una campaña para lanzar este
-producto en Chile. Define audiencia, comportamiento esperado, promesa, prueba,
-mensajes, canales, presupuesto, responsables y medición.
+Crea una estrategia de marketing para una empresa B2B SaaS que quiere aumentar
+su pipeline calificado durante los próximos seis meses. Separa hechos, supuestos
+y recomendaciones.
 ```
 
-### Ejemplo: auditoría
+### Auditoría con datos conectados
 
 ```text
-$senior-marketing-professional Revisa estos resultados de marketing, identifica
-el principal cuello de botella y prioriza tres intervenciones. Explica la evidencia,
-los riesgos y cómo medir cada intervención.
+Usa la integración de marketing disponible para revisar el último trimestre.
+Identifica el principal cuello de botella, separa métricas reportadas por cada
+plataforma y prioriza tres intervenciones.
 ```
 
-### Ejemplo: reporte ejecutivo
+### Reporte ejecutivo
 
 ```text
-$senior-marketing-professional Convierte estos datos en un reporte ejecutivo.
-Explica qué cambió, por qué podría haber cambiado, el impacto comercial,
-el nivel de confianza y las decisiones que debe tomar la dirección.
+Convierte estos datos en un reporte ejecutivo. Explica qué cambió, por qué
+podría haber cambiado, el impacto comercial, el nivel de confianza y las
+decisiones que debe tomar la dirección.
 ```
-
-## Información útil para obtener mejores resultados
-
-Cuando esté disponible, proporciona:
-
-- Modelo de negocio y oferta.
-- Mercado y geografía.
-- Cliente objetivo.
-- Objetivo comercial.
-- Presupuesto y plazo.
-- Canales actuales.
-- Resultados históricos.
-- Restricciones legales, operativas o de marca.
-- Responsable de la decisión.
-
-Si faltan datos importantes, la skill preguntará solo por aquello que pueda cambiar materialmente la recomendación. Cuando sea posible avanzar, utilizará supuestos explícitos.
 
 ## Seguridad y autorizaciones
 
-La skill puede analizar información y preparar borradores, pero eso no autoriza automáticamente a:
+La skill puede analizar información y preparar borradores, pero no autoriza automáticamente a publicar contenidos, enviar comunicaciones, cambiar presupuestos, modificar segmentaciones, editar campañas o registros de CRM ni contactar clientes.
 
-- Publicar contenidos.
-- Enviar comunicaciones.
-- Cambiar presupuestos.
-- Modificar segmentaciones.
-- Editar campañas o registros de CRM.
-- Contactar clientes o prospectos.
+Antes de una acción externa debe confirmarse la cuenta, audiencia, contenido, presupuesto, fecha y autoridad de aprobación. Las credenciales se configuran mediante los flujos seguros de cada plataforma y nunca deben pegarse en una conversación.
 
-Antes de realizar una acción externa, debe confirmarse la cuenta, audiencia, contenido, presupuesto, fecha y autoridad de aprobación.
+## Sidecars y hooks
 
-## Personalización
+Un **sidecar** es un proceso persistente administrado por Antigravity para trabajos programados o reacciones a eventos. No es una tarjeta visual y no forma parte del estándar portable de Agent Skills.
 
-Puedes adaptar la skill editando:
-
-- `SKILL.md` para modificar criterios, procesos o alcance.
-- `agents/openai.yaml` para cambiar el nombre visible o el prompt sugerido.
-- `references/measurement.md` para incorporar métricas, fórmulas o políticas propias de la organización.
-
-Mantén el valor `name: senior-marketing-professional` alineado con el nombre de la carpeta y con la invocación `$senior-marketing-professional`.
+Este plugin no incluye sidecars ni hooks todavía. Agregarlos sin una automatización concreta produciría procesos innecesarios y comportamientos distintos entre plataformas. Se pueden incorporar posteriormente cuando estén definidos el evento, la acción, la frecuencia, la fuente de datos y las condiciones de aprobación.
