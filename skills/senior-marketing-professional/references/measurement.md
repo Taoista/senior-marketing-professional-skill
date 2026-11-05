@@ -67,4 +67,3 @@ Expose the model:
 `Outcome = eligible volume x response rate x qualification rate x conversion rate x value per conversion`
 
 Use ranges or scenarios when inputs are uncertain. Identify the assumptions that dominate the result and show the break-even threshold. Reconcile totals across funnel stages, budgets, currencies, and time periods before presenting the forecast.
-

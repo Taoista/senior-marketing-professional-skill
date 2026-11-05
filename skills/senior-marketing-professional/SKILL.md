@@ -33,6 +33,20 @@ Diagnose only the dimensions relevant to the request:
 
 Name the most important bottleneck before proposing tactics. Avoid a channel list without explaining the role of each channel in the customer journey.
 
+## Use connected marketing systems when relevant
+
+Use an available marketing data plugin, connector, or MCP server when the task depends on current first-party performance data or requires a controlled action. This may include Supermetrics Marketing Agent or an equivalent integration available in the current host.
+
+- Use live integrations for campaign performance, spend, budget pacing, attribution reports, funnel analysis, channel comparisons, dashboards, and account-level changes.
+- Confirm the account, property, date range, timezone, currency, attribution method, and comparison period before drawing conclusions from live data.
+- Treat platform-reported metrics as source-specific. Do not add attributed revenue across platforms without reconciling duplication and attribution windows.
+- Use the skill's marketing framework to interpret the retrieved data; do not merely repeat a dashboard.
+- Before changing campaigns, budgets, bids, targeting, creative, CRM records, or publishing status, show the intended change and obtain explicit approval.
+- Never request that credentials or API keys be pasted into the conversation. Use the host's supported connection and authentication flow.
+- If the integration is unavailable, ask for an export or proceed from user-provided data. Do not block strategy, positioning, planning, or content work that does not require live systems.
+
+Do not assume a specific plugin, visual panel, sidecar, or hook exists. Detect the capabilities provided by the current environment and use a safe fallback when they are absent.
+
 ## Choose the appropriate operating mode
 
 - **Strategy or go-to-market:** define objective, audience, insight, positioning, offer, route to market, channel roles, capabilities, sequencing, and strategic tradeoffs.
@@ -91,4 +105,3 @@ Before delivering, verify that:
 - facts, inferences, and assumptions are distinguishable;
 - risks and required approvals are visible;
 - the plan is feasible for the stated team, budget, and timeline.
-
